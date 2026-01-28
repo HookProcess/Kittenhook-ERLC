@@ -122,7 +122,7 @@ if game.PlaceId == 2534724415 then
     PlayerSection:AddToggle({Name = "Instant Respawn", Callback = function(State) _G.AutoRespawn = State end})
     PlayerSection:AddToggle({Name = "Always Reset", Callback = function(State) _G.AlwaysReset = State end})
     PlayerSection:AddButton({Name = "Give Basketball", Callback = function() 
-        for _, Basketball in pairs(Workspace.Basketballs:GetChildren()) do 
+        for Stuff, Basketball in pairs(Workspace.Basketballs:GetChildren()) do 
             if Basketball:IsA("BasePart") then 
                 firetouchinterest(Basketball, LocalPlayer.Character.HumanoidRootPart, 0) 
                 task.wait() 
