@@ -50,8 +50,8 @@ local BurnRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("Actions"):
 local PunchRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("Punch")
 local RespawnRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("DeathRespawn")
 local ArrestRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("UseHandcuffs")
-local VehicleExit = ReplicatedStorage:WaitForChild("FE"):WaitForChild("VehicleExit")
-local VehicleSit = ReplicatedStorage:WaitForChild("FE"):WaitForChild("VehicleSit")
+local VehicleExitRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("VehicleExit")
+local VehicleSitRemote = ReplicatedStorage:WaitForChild("FE"):WaitForChild("VehicleSit")
 
 local FuelConnection
 local OriginalValues = {}
@@ -160,9 +160,9 @@ if game.PlaceId == 2534724415 then
     VehicleSection:AddButton({Name = "Apply Modification", Callback = function()
         if Humanoid and Humanoid.SeatPart then
             local Seat = Humanoid.SeatPart
-            VehicleExit:FireServer(Seat)
+            VehicleExitRemote:FireServer(Seat)
             task.wait(0.52)
-            VehicleSit:FireServer(Seat)
+            VehicleSitRemote:FireServer(Seat)
         end
     end})
     VehicleSection:AddToggle({Name = "Vehicle Noclip", Callback = function(State) _G.VehicleNoclip = State end})
