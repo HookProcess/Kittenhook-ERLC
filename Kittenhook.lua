@@ -1,5 +1,5 @@
 --[[
-    ERLC Script
+    Open Source ERLC Script | Kittenhook
     Created by: codecompressor, sillyleolol
     
     Note:
@@ -77,7 +77,7 @@ if game.PlaceId == 2534724415 then
     local Window = Compkiller.new({
         Name = "Kittenhook",
         Keybind = "LeftAlt",
-        Logo = "rbxassetid://120245531583106",
+        Logo = "rbxassetid://120245531583106", -- we aint got a logo so we usin compkiller logo ^^^
         Scale = Compkiller.Scale.Window, 
         TextSize = 15,
     });
@@ -151,7 +151,7 @@ if game.PlaceId == 2534724415 then
     CombatSection:AddSlider({Name = "Punch Aura Range", Min = 1, Max = 17, Precision = 1, Default = 12, Callback = function(State) _G.PunchAuraRange = State end})
 
     VehicleSection:AddToggle({Name = "Enabled", Callback = function(State) _G.VehicleModsEnabled = State end})
-    VehicleSection:AddToggle({Name = "Anti Roll", Callback = function(State) _G.AntiRollToggle = State end})
+    VehicleSection:AddToggle({Name = "Anti Roll", Callback = function(State) _G.AntiRoll = State end})
     VehicleSection:AddToggle({Name = "Ratios (Infinite Speed)", Callback = function(State) _G.InfiniteSpeed = State end})
     VehicleSection:AddSlider({Name = "Horsepower", Min = 0, Max = 10000, Default = 210, Callback = function(Value) _G.HorsepowerValue = Value end})
     VehicleSection:AddSlider({Name = "Forward Accel", Min = 0.01, Max = 10000, Precision = 0.01, Default = 150, Callback = function(Value) _G.ForwardAccel = Value end})
@@ -306,7 +306,7 @@ if game.PlaceId == 2534724415 then
                     Drive.SteerSpeed = Original.SteerSpeed
                 end
 
-                if _G.AntiRollToggle then
+                if _G.AntiRoll then
                     Drive.FAntiRoll = 10000
                     Drive.RAntiRoll = 10000
                 else
@@ -416,6 +416,6 @@ if game.PlaceId == 2534724415 then
 
     Window:DrawCategory({ Name = "Settings" });
     local SettingTab = Window:DrawTab({ Icon = "settings-3", Name = "Settings", Type = "Single" });
-    SettingTab:DrawSection({ Name = "UI Settings" }):AddButton({Name = "Copy Discord Link", Callback = function() setclipboard("no discord lol") end})
+    SettingTab:DrawSection({ Name = "UI Settings" }):AddButton({Name = "Copy Discord Link", Callback = function() setclipboard("https://discord.gg/XZHTtDzrvT") end})
     local ConfigUI = Window:DrawConfig({ Name = "Config", Icon = "folder", Config = ConfigManager }):Init();
 end
